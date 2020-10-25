@@ -1,3 +1,6 @@
+/*
+ * @Author: I3han
+ */
 // Model imports
 const ResponseService = require('./ResponseService'); // Response service
 const Post = require('../models/Post'); // Post model
