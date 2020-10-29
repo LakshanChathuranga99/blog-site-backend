@@ -4,7 +4,12 @@
 // Model imports
 const ResponseService = require('./ResponseService'); // Response service
 const Post = require('../models/Post'); // Post model
+const Comment = require('../models/Comment'); // Comment model
+const Reply = require('../models/Reply'); // Reply model
 const Types = require('./Types') // Model types
+const UserPostReaction = require('../models/reactionModels/userPostReaction');
+const UserCommentReaction = require('../models/reactionModels/userCommentReaction');
+const UserReplyReaction = require('../models/reactionModels/userReplyReaction');
 
 
 // Return model by type
@@ -13,6 +18,16 @@ function getModelByType(type) {
     switch (type) {
         case Types.POST:
             return Post;
+        case Types.COMMENT:
+            return Comment;
+        case Types.REPLY:
+            return Reply;
+        case Types.UPR:
+            return UserPostReaction;
+        case Types.UCR:
+            return UserCommentReaction;
+        case Types.URR:
+            return UserReplyReaction;
     }
 }
 
@@ -60,13 +75,13 @@ exports.getById = function (id, type, res) {
 
 }
 
-// // Update by ID
-// exports.updateById = function (id, val, type, res) {
-//     const model = getModelByType(type);
-//     model.findByIdAndUpdate(id, val, { new: true }, (err, doc) => {
-//         ResponseService.generalPayloadResponse(err, doc, res, undefined, "Updated");
-//     });
-// }
+// Update by ID
+exports.updateById = function (id, val, type, res) {
+    const model = getModelByType(type);
+    model.findByIdAndUpdate(id, val, { new: true }, (err, doc) => {
+        ResponseService.generalPayloadResponse(err, doc, res, undefined, "Updated");
+    });
+}
 
 // // Soft delete by ID
 // exports.softDelete = function (id, type, res) {

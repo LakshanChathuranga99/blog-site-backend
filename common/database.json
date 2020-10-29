@@ -3,7 +3,7 @@
   "local": {
     "dialect": "mysql",
     "user": "root",
-    "database": "commentApp",
+    "database": "blog_site_db",
     "password": "ishanah",
     "host": "127.0.0.1",
     "port": "3306"
@@ -11,7 +11,7 @@
   "dev": {
     "dialect": "mysql",
     "user": "root",
-    "database": "commentApp",
+    "database": "blog_site_db",
     "password": "ishanah",
     "host": "localhost",
     "port": "3306"

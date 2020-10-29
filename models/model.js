@@ -1,7 +1,3 @@
-/*
- * @Author: Rohan Wijesundara
- * @Date: 2020-07-28
- */
 const Sequelize = require('sequelize');
 const DataTypes = require('sequelize/lib/data-types');
 const Constants = require('../common/constant');

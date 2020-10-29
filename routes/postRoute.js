@@ -4,9 +4,10 @@
 const app = require('express');
 const router = app.Router();
 const Types = require('../common/Types') // Model types
+const routeConstant = require('../common/route-constant');
 
 // Post controller
-//const postController = require('../controllers/postController');
+const PostController = require('../controllers/postController');
 
 // CRUD Service
 const CRUD = require('../common/CRUD');
@@ -25,7 +26,7 @@ const CRUD = require('../common/CRUD');
  *       200:
  *         description: Responce Message
  */
-router.post('/', (req, res) => CRUD.create(req.body, Types.POST, res));
+router.post("/", (req, res) => CRUD.create(req.body, Types.POST, res));
 
 //get all
 /**
@@ -41,7 +42,7 @@ router.post('/', (req, res) => CRUD.create(req.body, Types.POST, res));
  *       200:
  *         description: Array of Post list
  */
-router.get('/', (req, res) =>CRUD.getAll(Types.POST, res));
+router.get('/', (req, res) => CRUD.getAll(Types.POST, res));
 
 // Get by id
 /**
@@ -57,7 +58,7 @@ router.get('/', (req, res) =>CRUD.getAll(Types.POST, res));
  *       200:
  *         description: A post
  */
-router.get('/:id', (req, res) => CRUD.getById(req.params.id, Types.POST, res));
+router.get(routeConstant.POST.GET_POST , (req, res) => CRUD.getById(req.params.id, Types.POST, res));
 
 // Delete by id
 /**
@@ -73,6 +74,22 @@ router.get('/:id', (req, res) => CRUD.getById(req.params.id, Types.POST, res));
  *       200:
  *         description: Responce Message
  */
-router.delete('/:id', (req, res) => CRUD.deleteById(req.params.id, Types.POST, res));
+router.delete(routeConstant.POST.DELETE_POST , (req, res) => CRUD.deleteById(req.params.id, Types.POST, res));
+
+// Update by id
+/**
+ * @swagger
+ * /api/posts/:id:
+ *   put:
+ *     description: update a post by ID
+ *     tags:
+ *      - Post
+ *     produces:
+ *       - application/json
+ *     responses:
+ *       200:
+ *         description: Responce Message
+ */
+router.put(routeConstant.POST.PUT_POST , (req, res) => CRUD.updateById(req.params.id, Types.POST, res));
 
 module.exports = router;

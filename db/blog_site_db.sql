@@ -436,7 +436,7 @@ CREATE TABLE `users` (
   `isUser` tinyint(4) NOT NULL DEFAULT '1',
   `avatarImageUrl` varchar(100) DEFAULT NULL,
   `ranking` varchar(5) DEFAULT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
   PRIMARY KEY (`u_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;

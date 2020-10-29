@@ -23,7 +23,7 @@ CREATE TABLE users(
     isUser tinyint(4) NOT NULL DEFAULT '1',
     avatarImageUrl VARCHAR(100),
     ranking VARCHAR(5),
-    password VARCHAR(50) NOT null,
+    password VARCHAR(100) NOT null,
     PRIMARY KEY (u_id)
 )ENGINE=InnoDB AUTO_INCREMENT=1;
 
